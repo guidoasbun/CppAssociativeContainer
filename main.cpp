@@ -23,22 +23,31 @@ int main()
 	// to insert the following integers in this order:
 	// 2, 7, 5, 6, 9, 1 and 3.
 
+    set<int> set1{2, 7, 5, 6, 9, 1, 3};
 
 	// Print the set using the printSet function you implemented.
 
+    cout << "Printout of set1: \n";
+    printSet(set1);
 
 	// What do you notice in the printout?
+    /*I noticed that the set was automatically ordered from least to greatest*/
 
 	// size_type  erase (const value_type& val);
 	// Use the function erase integer 9 from set1.
 	// Print out set1.
 
+    set1.erase(9);
+    cout << "set1.erase(20)\n";
+    printSet(set1);
 
 	// size_type  erase (const value_type& val);
 	// Use the function erase integer 2 from set1, but
 	// this time use cout to print the return value.
 	// What is the return value?
 
+    cout << "cout to print the value of set1.erase(2)\n";
+    cout << set1.erase(2);
 
 	// If you do not know what the return value is, then
 	// check set::erase in cplusplus.com
@@ -46,6 +55,8 @@ int main()
 
 	// Print set1.
 
+    cout << "Printout of set1: \n";
+    printSet(set1);
 
 	// iterator  erase (const_iterator position);
 	// This function is different from the previous one,
@@ -55,16 +66,24 @@ int main()
 	// an iterator variable and using the prefix increment
 	// operator.
 
+    set1.erase(*set1.begin()+2);
 
 	// Print set1.
 
+    cout << "set1.erase(*set1.begin()+2)\n";
+    printSet(set1);
 
 	// pair<iterator,bool> insert (const value_type& val);
 	// Use the function insert to insert 4 and 8 in set1.
 
+    set1.insert(4);
+    set1.insert(8);
 
 	// Print set1.
 
+    cout << "set1.insert(4)\n";
+    cout << "set1.insert(8)\n";
+    printSet(set1);
 
 	set<int>::iterator first = set1.begin();
 	set<int>::iterator second = ++set1.begin();
@@ -73,8 +92,11 @@ int main()
 	// in set1. Use the given iterators created above.
 	// Note that you should write one statement only.
 
+    set1.erase(first, ++second);
 
 	// Print set1.
+
+    cout << "set1.erase(second)\n";
 	printSet(set1);
 
 	// Your output should be: 5 6 7 8
@@ -106,7 +128,7 @@ int main()
 	cout << "\n\n----------------------------------------------------";
 
 	cout  <<  endl;
-	system("Pause");
+//	system("Pause");
 	return 0;
 }
 
