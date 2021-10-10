@@ -115,6 +115,26 @@ int main()
 
 	// Create a few maps using the different constructors shown in
 	// the slides.
+
+    /*Using insert make_pair*/
+
+    map<int, int> intMap;
+    for (int i = 1; i < 10; ++i)
+        intMap.insert( make_pair(i, (100 / i)));
+
+    map<int, string> intStringMap = {
+            {1, "one"},
+            {2, "two"},
+            {3, "three"},
+            {4, "four"},
+    };
+
+    map<char, int> charIntMap;
+    charIntMap['A'] = 90;
+    charIntMap['b'] = 80;
+    charIntMap['C'] = 70;
+    charIntMap['D'] = 60;
+
 	// Use the following functions to manipulate the maps:
 	// pair<iterator,bool> insert (const value_type& val);
 	// void insert (InputIterator first, InputIterator last);
@@ -123,6 +143,22 @@ int main()
 	// iterator  erase(const_iterator first, const_iterator last);
 	// Print each map without creating a print function, but
 	// by using a range-based loop.
+
+    cout << "intMap: \n";
+    for (const auto& elem : intMap)
+        cout << "(" << elem.first << ", " << elem.second << ")";
+    cout << endl;
+
+    cout << "intStringMap: \n";
+    for (const auto& elem : intStringMap)
+        cout << "(" << elem.first << ", " << elem.second << ")";
+    cout << endl;
+
+    cout << "charIntMap: \n";
+    auto it = charIntMap.cbegin();
+    auto itEnd = charIntMap.cend();
+    for (it; it != itEnd; ++ it)
+        cout << "(" << it->first << " " << it->second << ")";
 
 
 	cout << "\n\n----------------------------------------------------";
